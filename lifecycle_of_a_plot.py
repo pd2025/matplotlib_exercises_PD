@@ -16,38 +16,6 @@ data = {'Barton LLC': 109438.50,
 group_data = list(data.values())
 group_names = list(data.keys())
 group_mean = np.mean(group_data)
-fig, ax = plt.subplots()
-fig, ax = plt.subplots()
-ax.barh(group_names, group_data())
-print(plt.style.available)
-plt.style.use('fivethirtyeight')
-fig, ax = plt.subplots()
-ax.barh(group_names, group_data)
-fig, ax = plt.subplots()
-ax.barh(group_names, group_data)
-labels = ax.get_xticklabels()
-fig, ax = plt.subplots()
-ax.barh(group_names, group_data)
-labels = ax.get_xticklabels()
-plt.setp(labels, rotation=45, horizontalalignment='right')
-plt.rcParams.update({'figure.autolayout': True})
-
-fig, ax = plt.subplots()
-ax.barh(group_names, group_data)
-labels = ax.get_xticklabels()
-plt.setp(labels, rotation=45, horizontalalignment='right')
-fig, ax = plt.subplots()
-ax.barh(group_names, group_data)
-labels = ax.get_xticklabels()
-plt.setp(labels, rotation=45, horizontalalignment='right')
-ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
-       title='Company Revenue')
-fig, ax = plt.subplots(figsize=(8, 4))
-ax.barh(group_names, group_data)
-labels = ax.get_xticklabels()
-plt.setp(labels, rotation=45, horizontalalignment='right')
-ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
-       title='Company Revenue')
 
 
 def currency(x, pos):
@@ -60,14 +28,7 @@ def currency(x, pos):
 
 
 formatter = FuncFormatter(currency)
-fig, ax = plt.subplots(figsize=(6, 8))
-ax.barh(group_names, group_data)
-labels = ax.get_xticklabels()
-plt.setp(labels, rotation=45, horizontalalignment='right')
-
-ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
-       title='Company Revenue')
-ax.xaxis.set_major_formatter(formatter)
+plt.rcParams.update({'figure.autolayout': True})
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.barh(group_names, group_data)
 labels = ax.get_xticklabels()
@@ -78,16 +39,15 @@ ax.axvline(group_mean, ls='--', color='r')
 
 # Annotate new companies
 for group in [3, 5, 8]:
-    ax.text(145000, group, "New Company", fontsize=10,
-            verticalalignment="center")
+    ax.text(145000, group, "New Company", fontsize=10, verticalalignment="center")
 
 # Now we'll move our title up since it's getting a little cramped
 ax.title.set(y=1.05)
 
-ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company',
-       title='Company Revenue')
+ax.set(xlim=[-10000, 140000], xlabel='Total Revenue', ylabel='Company', title='Company Revenue')
 ax.xaxis.set_major_formatter(formatter)
 ax.set_xticks([0, 25e3, 50e3, 75e3, 100e3, 125e3])
-fig.subplots_adjust(right=.1)
+# fig.subplots_adjust(right=.1)
 
 plt.show()
+fig.savefig('sales.png', transparent=False, dpi=80, bbox_inches="tight")
