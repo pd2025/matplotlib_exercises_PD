@@ -39,7 +39,7 @@ ax.axvline(group_mean, ls='--', color='r')
 
 # Annotate new companies
 for group in [3, 5, 8]:
-    ax.text(145000, group, "New Company", fontsize=10, verticalalignment="center")
+    ax.text(145000, group, "New Company", fontsize=10, verticalalignment="center")  # writes text onto the axes
 
 # Now we'll move our title up since it's getting a little cramped
 ax.title.set(y=1.05)
