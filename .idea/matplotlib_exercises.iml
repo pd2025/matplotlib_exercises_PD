@@ -5,5 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Pooja_TCSPY3" />
+    <orderEntry type="module" module-name="SMTP_practice" />
+    <orderEntry type="module" module-name="just_messing_around" />
   </component>
 </module>
